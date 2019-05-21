@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseRecyclerView">
+        <attr name="it_divider" format="integer"/>
+        <attr name="it_has_divider_after_last_item" format="boolean"/>
+        <attr name="it_space_between_items" format="dimension"/>
+        <attr name="it_has_space_after_last_item" format="boolean"/>
+    </declare-styleable>
+</resources>
