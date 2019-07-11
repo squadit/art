@@ -39,12 +39,11 @@ open class AmountEditText : EditText {
     }
 
     private fun fillZero(text: String): String {
-        if (text.last() == ',') {
-            return "${text}00"
-        } else if (text.isEmpty()){
-            return "0,00"
+        return when {
+            text.isEmpty() -> "0,00"
+            text.last() == ',' -> "${text}00"
+            else -> text
         }
-        return text
     }
 
     fun setTextWatcher(textWatcher: TextWatcher) {
