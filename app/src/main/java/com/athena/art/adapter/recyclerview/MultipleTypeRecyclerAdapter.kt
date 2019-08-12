@@ -12,7 +12,8 @@ abstract class MultipleTypeRecyclerAdapter(var items: MutableList<RecyclerViewVi
     protected abstract fun getViewHolder(view: View, viewType: Int): MultipleTypeRecyclerViewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MultipleTypeRecyclerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
+        parentContext = parent.context
+        val view = LayoutInflater.from(parentContext).inflate(viewType, parent, false)
         return getViewHolder(view, viewType)
     }
 

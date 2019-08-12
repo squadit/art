@@ -1,12 +1,14 @@
 package com.athena.art.adapter.recyclerview
 
 import android.animation.Animator
+import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseRecyclerAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     protected var animationRunOnce = true
+    protected lateinit var parentContext: Context
 
     protected fun runAnimation(holder: RecyclerView.ViewHolder) {
         getCustomAnimation()?.let {

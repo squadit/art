@@ -18,13 +18,18 @@ abstract class SingleTypeRecyclerAdapter<ItemType>(var items: MutableList<ItemTy
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SingleTypeRecyclerViewHolder<ItemType> {
-        val view = LayoutInflater.from(parent.context).inflate(getLayoutIdForItem(), parent, false)
+        parentContext = parent.context
+        val view = LayoutInflater.from(parentContext).inflate(getLayoutIdForItem(), parent, false)
         return getViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: SingleTypeRecyclerViewHolder<ItemType>, position: Int) {
         holder.bind(items[position])
-        holder.itemView.setOnClickListener { itemSelectedListener?.invoke(items[position]) }
+
+        if (itemSelectedListener != null){
+            holder.itemView.setOnClickListener { itemSelectedListener!!.invoke(items[position]) }
+        }
+
         if (!animationRunOnce || holder.adapterPosition > lastAdapterPosition) {
             runAnimation(holder)
             lastAdapterPosition = holder.adapterPosition
