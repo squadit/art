@@ -26,7 +26,7 @@ abstract class SingleTypeRecyclerAdapter<ItemType>(var items: MutableList<ItemTy
     override fun onBindViewHolder(holder: SingleTypeRecyclerViewHolder<ItemType>, position: Int) {
         holder.bind(items[position])
 
-        if (itemSelectedListener != null){
+        if (itemSelectedListener != null) {
             holder.itemView.setOnClickListener { itemSelectedListener!!.invoke(items[position]) }
         }
 

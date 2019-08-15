@@ -20,7 +20,7 @@ open class BaseRecyclerView : RecyclerView {
     }
 
     private fun setAttributes(attrs: AttributeSet?) {
-        val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.RecyclerView, 0, 0)
+        val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.BaseRecyclerView, 0, 0)
 
         val spaceBetweenItems = typedArray.getDimension(R.styleable.BaseRecyclerView_it_space_between_items, 0f)
         val hasSpaceAfterLastItem =
