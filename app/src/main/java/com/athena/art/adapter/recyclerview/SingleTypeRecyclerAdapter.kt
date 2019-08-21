@@ -8,12 +8,12 @@ abstract class SingleTypeRecyclerAdapter<ItemType>(var items: MutableList<ItemTy
     BaseRecyclerAdapter<SingleTypeRecyclerViewHolder<ItemType>>() {
 
     private var lastAdapterPosition = -1
-    private var itemSelectedListener: ((ItemType) -> Unit)? = null
+    private var itemSelectedListener: ((item: ItemType, index: Int) -> Unit)? = null
 
     protected abstract fun getLayoutIdForItem(): Int
     protected abstract fun getViewHolder(view: View): SingleTypeRecyclerViewHolder<ItemType>
 
-    fun setItemSelectedListener(listener: (ItemType) -> Unit) {
+    fun setItemSelectedListener(listener: (item: ItemType, index: Int) -> Unit) {
         itemSelectedListener = listener
     }
 
@@ -27,7 +27,7 @@ abstract class SingleTypeRecyclerAdapter<ItemType>(var items: MutableList<ItemTy
         holder.bind(items[position])
 
         if (itemSelectedListener != null) {
-            holder.itemView.setOnClickListener { itemSelectedListener!!.invoke(items[position]) }
+            holder.itemView.setOnClickListener { itemSelectedListener!!.invoke(items[position], position) }
         }
 
         if (!animationRunOnce || holder.adapterPosition > lastAdapterPosition) {

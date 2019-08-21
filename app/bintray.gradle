@@ -5,7 +5,7 @@ ext {
 
     publishedGroupId = 'com.athena.art'
     artifact = 'art'
-    libraryVersion = '0.1.4'
+    libraryVersion = '0.1.5'
 
     libraryDescription = 'Core library for Android development'
     siteUrl = 'https://github.com/squadit/art'
