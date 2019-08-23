@@ -24,7 +24,7 @@ abstract class MultipleTypeRecyclerAdapter(var items: MutableList<RecyclerViewVi
     }
 
     override fun onBindViewHolder(holder: MultipleTypeRecyclerViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], position)
         if (!animationRunOnce || holder.adapterPosition > lastAdapterPosition) {
             runAnimation(holder)
             lastAdapterPosition = holder.adapterPosition
