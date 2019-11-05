@@ -23,7 +23,6 @@ abstract class AmountTextWatcher(
 
     init {
         editText.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
-        editText.keyListener = DigitsKeyListener.getInstance("0123456789.,")
     }
 
     fun setDecimalPartLength(decimalPartLength: Int) {
